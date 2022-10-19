@@ -70,8 +70,8 @@ const createPhotoDataArr = () => ({
   comments: randomNumber(commentsCount.min, commentsCount.max),
 });
 
-// Создает 25 объектов с описанием фотографии
+// Создает 25 объектов с описанием фотографий
 
 const similarPhotoDataArr = Array.from({length: similarPhotoDataCount},createPhotoDataArr );
-// eslint-disable-next-line no-console
+
 console.log(similarPhotoDataArr);
