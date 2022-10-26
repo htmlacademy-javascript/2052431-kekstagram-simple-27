@@ -18,14 +18,14 @@ stringLength('hbhhbh', 140);
 
 // Генерация объектов
 const likesCount = {
-  min : 25,
-  max: 200,
+  MIN : 25,
+  MAX: 200,
 };
 const commentsCount = {
-  min: 0,
-  max: 200,
+  MIN: 0,
+  MAX: 200,
 };
-const photoDescription = [
+const PHOTODESCRIPTION = [
   'Природа',
   'Города',
   'Животные',
@@ -41,7 +41,7 @@ const photoDescription = [
   'Фанатазия',
   'Море',
 ];
-const similarPhotoDataCount = 25;
+const SIMILARPHOTODATACOUNT = 25;
 
 // Получает список чисел от 1 до 25
 
@@ -53,7 +53,7 @@ const getListElements = (counter) => {
   return newArray;
 };
 
-const IdNumbersArray = getListElements(25);
+const idNumbersArray = getListElements(SIMILARPHOTODATACOUNT);
 
 // Получает рандомный элемент массива
 
@@ -63,15 +63,15 @@ const getRandomArrayElement = (elements) =>
 // Создает один объект с описанием фотографии
 
 const createPhotoDataArr = () => ({
-  id: getRandomArrayElement(IdNumbersArray),
-  url: `photos/${getRandomArrayElement(IdNumbersArray)}.jpg`,
-  description: getRandomArrayElement(photoDescription),
-  likes: randomNumber(likesCount.min, likesCount.max),
-  comments: randomNumber(commentsCount.min, commentsCount.max),
+  id: getRandomArrayElement(idNumbersArray),
+  url: `photos/${getRandomArrayElement(idNumbersArray)}.jpg`,
+  description: getRandomArrayElement(PHOTODESCRIPTION),
+  likes: randomNumber(likesCount.MIN, likesCount.MAX),
+  comments: randomNumber(commentsCount.MIN, commentsCount.MAX),
 });
 
 // Создает 25 объектов с описанием фотографий
 
-const similarPhotoDataArr = Array.from({length: similarPhotoDataCount},createPhotoDataArr );
+const similarPhotoDataArr = Array.from({length: SIMILARPHOTODATACOUNT},createPhotoDataArr );
 
 console.log(similarPhotoDataArr);
