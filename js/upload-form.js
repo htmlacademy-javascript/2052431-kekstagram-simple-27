@@ -5,12 +5,15 @@ const uploadForm = document.querySelector('.img-upload__form');
 const overlayForm = document.querySelector('.img-upload__overlay');
 const uploadFile = document.querySelector('#upload-file');
 const cancelButton = document.querySelector('.img-upload__cancel');
+const imageComment = document.querySelector('.text__description');
+
 
 //Пристин
 const pristine = new Pristine(uploadForm,
   {
-    classTo: 'img-upload__text',
-    errorTextParent: 'img-upload__text',
+    classTo: 'img-upload__wrapper',
+    errorTextParent: 'img-upload__wrapper',
+    errorTextClass: 'errortxt'
   },
   true
 );
@@ -24,15 +27,21 @@ const showModal = () => {
 const closeModal = () => {
   overlayForm.classList.add('hidden');
   body.classList.remove('modal-open');
+  uploadFile.value = '';
+  imageComment.value = '';
+
   document.removeEventListener('keydown', onModalEscKeydown);
 };
+
+
 // обработчик изменение инпута
 const onFileInputChange = () => {
   showModal();
 };
 // обработчик отправки формы
 const onFormSubmit = (evt) => {
-  if (!pristine.validate()) {
+  const isValid = pristine.validate();
+  if (!isValid) {
     evt.preventDefault();
   }
 };
