@@ -32,4 +32,9 @@ const getListElements = (counter) => {
 const getRandomArrayElement = (elements) =>
   elements[randomNumber(0, elements.length - 1)];
 
-export {randomNumber, getListElements, getRandomArrayElement};
+//Проверка нажатия клавиши escape
+const isEscape = (evt) => evt.key === 'Escape';
+
+
+export {randomNumber, getListElements, getRandomArrayElement, isEscape};
+
