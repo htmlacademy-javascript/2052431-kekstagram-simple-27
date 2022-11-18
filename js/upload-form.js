@@ -1,5 +1,6 @@
 import {isEscape} from './util.js';
 import { resetScale } from './image-resize.js';
+import { resetEffects } from './effect.js';
 const body = document.querySelector('body');
 const uploadForm = document.querySelector('.img-upload__form');
 const overlayForm = document.querySelector('.img-upload__overlay');
@@ -31,6 +32,7 @@ const closeModal = () => {
   imageComment.value = '';
   // uploadForm.reset();
   resetScale();
+  resetEffects();
   document.removeEventListener('keydown', onModalEscKeydown);
 };
 
