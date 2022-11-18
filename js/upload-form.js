@@ -37,29 +37,29 @@ const closeModal = () => {
 };
 
 
-// обработчик изменение инпута
+// коллбэк изменение инпута
 const onFileInputChange = () => {
   showModal();
 };
-// обработчик отправки формы
+// коллбэк отправки формы
 const onFormSubmit = (evt) => {
   const isValid = pristine.validate();
   if (!isValid) {
     evt.preventDefault();
   }
 };
-// обработчик закрытия кнопкой
+// коллбэк закрытия кнопкой
 const onCancelButtonClick = () => {
   closeModal();
 };
-//обработчик ескейп
+//коллбэкк ескейп
 const onModalEscKeydown = (evt) => {
   if(isEscape(evt)){
     evt.preventDefault();
     closeModal();
   }
 };
-
+// обработчики
 uploadFile.addEventListener('change', onFileInputChange);
 uploadForm.addEventListener('submit', onFormSubmit);
 cancelButton.addEventListener('click', onCancelButtonClick);
