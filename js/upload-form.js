@@ -1,5 +1,6 @@
 import {isEscape} from './util.js';
 import { resetScale } from './image-resize.js';
+import { resetEffects } from './effect.js';
 const body = document.querySelector('body');
 const uploadForm = document.querySelector('.img-upload__form');
 const overlayForm = document.querySelector('.img-upload__overlay');
@@ -31,33 +32,34 @@ const closeModal = () => {
   imageComment.value = '';
   // uploadForm.reset();
   resetScale();
+  resetEffects();
   document.removeEventListener('keydown', onModalEscKeydown);
 };
 
 
-// обработчик изменение инпута
+// коллбэк изменение инпута
 const onFileInputChange = () => {
   showModal();
 };
-// обработчик отправки формы
+// коллбэк отправки формы
 const onFormSubmit = (evt) => {
   const isValid = pristine.validate();
   if (!isValid) {
     evt.preventDefault();
   }
 };
-// обработчик закрытия кнопкой
+// коллбэк закрытия кнопкой
 const onCancelButtonClick = () => {
   closeModal();
 };
-//обработчик ескейп
+//коллбэкк ескейп
 const onModalEscKeydown = (evt) => {
   if(isEscape(evt)){
     evt.preventDefault();
     closeModal();
   }
 };
-
+// обработчики
 uploadFile.addEventListener('change', onFileInputChange);
 uploadForm.addEventListener('submit', onFormSubmit);
 cancelButton.addEventListener('click', onCancelButtonClick);
