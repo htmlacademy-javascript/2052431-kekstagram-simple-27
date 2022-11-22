@@ -34,7 +34,7 @@ const getRandomArrayElement = (elements) =>
 
 //Проверка нажатия клавиши escape
 const isEscape = (evt) => evt.key === 'Escape';
-
+//сообщение
 const ALERT_SHOW_TIME = 5000;
 
 const showAlert = (message) => {

@@ -1,3 +1,4 @@
+// запрос к серверу на получение данных
 const getData = (onSuccess, onFail) => {
   fetch('https://27.javascript.pages.academy/kekstagram-simple/data')
     .then((response) => {
@@ -14,7 +15,7 @@ const getData = (onSuccess, onFail) => {
       onFail('Не удалось загрузить. Попробуйте ещё раз');
     });
 };
-
+//запрос к серверу отправка данных
 const sendData = (onSuccess, onFail, body) => {
   fetch(
     'https://27.javascript.pages.academy/kekstagram-simple',
