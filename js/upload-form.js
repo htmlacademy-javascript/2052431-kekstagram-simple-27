@@ -22,7 +22,7 @@ const pristine = new Pristine(uploadForm,
   },
   true
 );
-
+// колбэки блокировки и разблокировки кнопки при отправке
 const blockUploadButton = () => {
   uploadButton.disabled = true;
 };
@@ -53,14 +53,6 @@ const setUserFormSubmit = (onSuccess) => {
   });
 };
 
-//колбэки блокировки кнопки при отправке
-const blockSubmitButton = () => {
-  uploadButton.disabled = true;
-};
-
-const unblockSubmitButton = () => {
-  uploadButton.disabled = false;
-};
 //открыть модальное окно
 const showModal = () => {
   overlayForm.classList.remove('hidden');
@@ -73,7 +65,7 @@ const closeModal = () => {
   body.classList.remove('modal-open');
   uploadFile.value = '';
   imageComment.value = '';
-  // uploadForm.reset();
+  uploadForm.reset();
   resetScale();
   resetEffects();
   document.removeEventListener('keydown', onModalEscKeydown);
@@ -106,30 +98,6 @@ const onModalEscKeydown = (evt) => {
 uploadFile.addEventListener('change', onFileInputChange);
 uploadForm.addEventListener('submit', onFormSubmit);
 cancelButton.addEventListener('click', onCancelButtonClick);
-
-//нажатие кнопки отправить
-// function onFormSubmitButton (evt) {
-//   evt.preventDefault();
-
-//   const isValid = pristine.validate();
-
-//   if (isValid) {
-//     blockSubmitButton();
-//     const formData = new FormData(evt.target);
-//     sendData(
-//       () => {
-//         closeModal();
-//         showSuccessMessage();
-//         unblockSubmitButton();
-//       },
-//       () => {
-//         showErrorMessage();
-//         unblockSubmitButton();
-//       },
-//       formData
-//     );
-//   }
-//}
 
 export { setUserFormSubmit };
 export { closeModal };

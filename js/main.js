@@ -1,9 +1,9 @@
-import {RenderSimilarthumbnails} from './render-thumbnail.js';
+import {renderSimilarthumbnails} from './render-thumbnail.js';
 import {setUserFormSubmit, closeModal} from './upload-form.js';
 import {getData} from './api.js';
 import {showAlert} from './util.js';
 
-getData(RenderSimilarthumbnails, showAlert);
+getData(renderSimilarthumbnails, showAlert);
 setUserFormSubmit(closeModal);
 
 

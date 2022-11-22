@@ -1,6 +1,8 @@
 // запрос к серверу на получение данных
+const getDataUrl = 'https://27.javascript.pages.academy/kekstagram-simple/data';
+const sendDataUrl = 'https://27.javascript.pages.academy/kekstagram-simple';
 const getData = (onSuccess, onFail) => {
-  fetch('https://27.javascript.pages.academy/kekstagram-simple/data')
+  fetch(getDataUrl)
     .then((response) => {
       if (response.ok) {
         response.json()
@@ -18,7 +20,7 @@ const getData = (onSuccess, onFail) => {
 //запрос к серверу отправка данных
 const sendData = (onSuccess, onFail, body) => {
   fetch(
-    'https://27.javascript.pages.academy/kekstagram-simple',
+    sendDataUrl,
     {
       method: 'POST',
       body,
@@ -26,14 +28,12 @@ const sendData = (onSuccess, onFail, body) => {
   )
     .then((response) => {
       if (response.ok) {
-        onSuccess();
-      } else {
-        throw new Error('Невозможно отправить форму! Попробуйте ещё раз.');
+        return onSuccess();
       }
+
+      onFail();
     })
-    .catch((error) => {
-      onFail(error.message);
-    });
+    .catch(onFail);
 };
 
 export {getData, sendData};

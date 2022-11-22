@@ -1,7 +1,7 @@
 const thumbnailsUsersList = document.querySelector('.pictures');
 const thumbnailsOtherUsersTemplate = document.querySelector('#picture').content.querySelector('.picture');
 
-const RenderSimilarthumbnails = (thumbnails) => {
+const renderSimilarthumbnails = (thumbnails) => {
   const thumbnailsListFragment = document.createDocumentFragment();
   thumbnails.forEach(({url, likes, comments}) => {
     const newThumbnailElement = thumbnailsOtherUsersTemplate.cloneNode(true);
@@ -15,4 +15,4 @@ const RenderSimilarthumbnails = (thumbnails) => {
   thumbnailsUsersList.appendChild(thumbnailsListFragment);
 };
 
-export {RenderSimilarthumbnails};
+export {renderSimilarthumbnails};

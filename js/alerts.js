@@ -48,10 +48,6 @@ const showErrorMessage = function () {
 function closeMessage () {
   const message = document.querySelector('.success') || document.querySelector('.error');
   message.remove();
-  document.removeEventListener('keydown', onMessageEscKeydown);
-  document.removeEventListener('click', onOverlayClick);
-  errorButton.removeEventListener('click', onErrorButtonClick);
-  successButton.removeEventListener('click', onSuccessButtonClick);
   body.style.overflow = 'auto';
 }
 

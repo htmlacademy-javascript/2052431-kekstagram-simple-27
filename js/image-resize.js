@@ -27,15 +27,15 @@ const onReduceButtonClick = () => {
 // коллбэк при увелечении масштаба
 const onIncreaseButtonClick = () => {
   currentValue = currentValue + STEP_SCALE;
-  if (currentValue> MAX_SCALE) {
+  if (currentValue > MAX_SCALE) {
     currentValue = MAX_SCALE;
   }
-  scaleImage(currentValue);
+  scaleImage (currentValue);
 };
 // сброс
 const resetScale = () => {
   scaleImage();
-}
+};
 // обработчики
 reduceButton.addEventListener('click', onReduceButtonClick);
 increaseButton.addEventListener('click', onIncreaseButtonClick);
