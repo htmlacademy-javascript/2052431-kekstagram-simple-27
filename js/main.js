@@ -1,7 +1,9 @@
-import {createPhotoDataArr} from './data.js';
-import './render-thumbnail.js';
-import './upload-form.js';
-import './image-resize.js';
-import './effect.js';
-console.log(createPhotoDataArr());
+import {renderSimilarthumbnails} from './render-thumbnail.js';
+import {setUserFormSubmit, closeModal} from './upload-form.js';
+import {getData} from './api.js';
+import {showAlert} from './util.js';
+
+getData(renderSimilarthumbnails, showAlert);
+setUserFormSubmit(closeModal);
+
 

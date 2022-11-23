@@ -8,33 +8,34 @@ const reduceButton = document.querySelector('.scale__control--smaller');
 const increaseButton = document.querySelector('.scale__control--bigger');
 const textScaleInput = document.querySelector('.scale__control--value');
 const image = document.querySelector('.img-upload__preview img');
+
+let currentValue = parseInt(textScaleInput.value, 10);
 // изменение масшатба фото и запись выбранного значения
 const scaleImage = (value = DEFAULT_SCALE) => {
-  image.style.transform = `scale(${value / 100})`;
+  image.style.transform = `scale(${value / MAX_SCALE})`;
   textScaleInput.value = `${value}%`;
 };
 // коллбэк при меньшении масштаба
 const onReduceButtonClick = () => {
-  const currentValue = parseInt(textScaleInput.value, 10);
-  let newValue = currentValue - STEP_SCALE;
-  if (newValue < MIN_SCALE) {
-    newValue = MIN_SCALE;
+
+  currentValue = currentValue - STEP_SCALE;
+  if (currentValue < MIN_SCALE) {
+    currentValue = MIN_SCALE;
   }
-  scaleImage(newValue);
+  scaleImage(currentValue);
 };
 // коллбэк при увелечении масштаба
 const onIncreaseButtonClick = () => {
-  const currentValue = parseInt(textScaleInput.value, 10);
-  let newValue = currentValue + STEP_SCALE;
-  if (newValue > MAX_SCALE) {
-    newValue =  MAX_SCALE;
+  currentValue = currentValue + STEP_SCALE;
+  if (currentValue > MAX_SCALE) {
+    currentValue = MAX_SCALE;
   }
-  scaleImage(newValue);
+  scaleImage (currentValue);
 };
 // сброс
 const resetScale = () => {
   scaleImage();
-}
+};
 // обработчики
 reduceButton.addEventListener('click', onReduceButtonClick);
 increaseButton.addEventListener('click', onIncreaseButtonClick);
