@@ -12,7 +12,7 @@ const image = document.querySelector('.img-upload__preview img');
 let currentValue = parseInt(textScaleInput.value, 10);
 // изменение масшатба фото и запись выбранного значения
 const scaleImage = (value = DEFAULT_SCALE) => {
-  image.style.transform = `scale(${value / 100})`;
+  image.style.transform = `scale(${value / MAX_SCALE})`;
   textScaleInput.value = `${value}%`;
 };
 // коллбэк при меньшении масштаба

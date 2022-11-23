@@ -1,8 +1,8 @@
 // запрос к серверу на получение данных
-const getDataUrl = 'https://27.javascript.pages.academy/kekstagram-simple/data';
-const sendDataUrl = 'https://27.javascript.pages.academy/kekstagram-simple';
+const GET_DATA_URL = 'https://27.javascript.pages.academy/kekstagram-simple/data';
+const SEND_DATA_URL = 'https://27.javascript.pages.academy/kekstagram-simple';
 const getData = (onSuccess, onFail) => {
-  fetch(getDataUrl)
+  fetch(GET_DATA_URL)
     .then((response) => {
       if (response.ok) {
         response.json()
@@ -20,7 +20,7 @@ const getData = (onSuccess, onFail) => {
 //запрос к серверу отправка данных
 const sendData = (onSuccess, onFail, body) => {
   fetch(
-    sendDataUrl,
+    SEND_DATA_URL,
     {
       method: 'POST',
       body,
@@ -29,9 +29,9 @@ const sendData = (onSuccess, onFail, body) => {
     .then((response) => {
       if (response.ok) {
         return onSuccess();
+      } else {
+        onFail();
       }
-
-      onFail();
     })
     .catch(onFail);
 };

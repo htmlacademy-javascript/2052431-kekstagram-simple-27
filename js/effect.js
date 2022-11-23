@@ -54,11 +54,11 @@ const EFFECTS = [
   },
 ];
 
-const DEFAULT_EFFECT = EFFECTS[0];
-let chosenEffect = DEFAULT_EFFECT;
+const defaultEffect = EFFECTS[0];
+let chosenEffect = defaultEffect;
 //проверка на эффект по умолчанию
 
-const isDefault = () => chosenEffect === DEFAULT_EFFECT;
+const isDefault = () => chosenEffect === defaultEffect;
 
 //слайдер
 const updateSlider = () => {
@@ -102,14 +102,14 @@ const onSliderUpdate = () => {
 };
 // сброс слайдера
 const resetEffects = () => {
-  chosenEffect = DEFAULT_EFFECT;
+  chosenEffect = defaultEffect;
   updateSlider();
 };
 // создание слайдера
 noUiSlider.create(sliderElement, {
   range: {
-    min: DEFAULT_EFFECT.min,
-    max: DEFAULT_EFFECT.max,
+    min: defaultEffect.min,
+    max: defaultEffect.max,
   },
   start: chosenEffect.max,
   step: chosenEffect.step,

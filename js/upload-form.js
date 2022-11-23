@@ -87,13 +87,14 @@ const onFormSubmit = (evt) => {
 const onCancelButtonClick = () => {
   closeModal();
 };
+
 //коллбэкк ескейп
-const onModalEscKeydown = (evt) => {
+function onModalEscKeydown (evt) {
   if(isEscape(evt)){
     evt.preventDefault();
     closeModal();
   }
-};
+}
 // обработчики
 uploadFile.addEventListener('change', onFileInputChange);
 uploadForm.addEventListener('submit', onFormSubmit);
