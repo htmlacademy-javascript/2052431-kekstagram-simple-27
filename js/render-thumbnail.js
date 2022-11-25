@@ -1,6 +1,6 @@
 const thumbnailsUsersList = document.querySelector('.pictures');
 const thumbnailsOtherUsersTemplate = document.querySelector('#picture').content.querySelector('.picture');
-
+// отрисовка миниатюр
 const renderSimilarthumbnails = (thumbnails) => {
   const thumbnailsListFragment = document.createDocumentFragment();
   thumbnails.forEach(({url, likes, comments}) => {
