@@ -88,10 +88,17 @@ const onCancelButtonClick = () => {
   closeModal();
 };
 
+// проверка открыто ли сообщение об ошибке
+function isErrorMessageOpen() {
+  return document.querySelectorAll('.error').length > 0;
+}
 //коллбэкк ескейп
 function onModalEscKeydown (evt) {
-  if(isEscape(evt)){
+  if (isEscape(evt)) {
     evt.preventDefault();
+    if (isErrorMessageOpen()) {
+      return;
+    }
     closeModal();
   }
 }
